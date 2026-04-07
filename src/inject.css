@@ -1,0 +1,8 @@
+/* 兜底：当请求重定向不命中时，用 CSS 强制替换常见 logo 容器 */
+[class*="logo" i] img,
+[class*="Logo"] img,
+a[href="/"] img[alt*="enspark" i] {
+  content: url('file:///__LOGO_PATH__') !important;
+  max-height: 32px !important;
+  width: auto !important;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "genspark-shell",
+  "version": "0.1.0",
+  "description": "Desktop shell for genspark.ai",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.siophan.gensparkshell",
+    "productName": "GensparkShell",
+    "files": ["src/**/*", "assets/**/*"],
+    "mac": {
+      "target": [
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ],
+      "identity": null,
+      "category": "public.app-category.productivity"
+    },
+    "win": { "target": "nsis" },
+    "linux": { "target": "AppImage" }
+  }
+}
