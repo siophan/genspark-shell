@@ -5,6 +5,9 @@ const fs = require('fs')
 const TARGET_URL = 'https://www.genspark.ai/'
 const BRAND = require('./brand.js')
 
+// 关闭 Chromium 的 DoH/AsyncDNS，强制走系统 DNS（让 VPN 的 DNS 生效）
+app.commandLine.appendSwitch('disable-features', 'DnsOverHttps,AsyncDns')
+
 function redirectLogos() {
   if (!BRAND.logoUrlPatterns?.length) return
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
